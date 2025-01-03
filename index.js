@@ -97,7 +97,7 @@ for(let eventName of fs.readdirSync("./events")) {
 
 
 client.once("ready", async() => {
-	const rest = new Rest.REST({ version: "10" }).setToken(config.token);
+	const rest = new Rest.REST({ version: "10" }).setToken(process.env.token);
   try {
     await rest.put(DiscordApi.Routes.applicationCommands(client.user.id), {
       body: client.commands,  //
